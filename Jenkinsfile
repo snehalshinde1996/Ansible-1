@@ -17,13 +17,13 @@ pipeline {
 	}
  	stage ("install httpd server") {
  		steps {
- 		sh 'ansible all -b -m yum "name=httpd state=install" '
+ 		sh 'ansible all -b -m  yum -a "name=httpd state=installed" '
  	}
  }	
  	stage ("copy index file") {
  		steps {
-         sh 'ansible all -b -m copy "src=index.html dest=/var/www/html/ mode=0777"'  
-         sh 'ansible all -b -m service "name=httpd state=started"' 		
+         sh 'ansible all -b -m copy -a "src=index.html dest=/var/www/html/ mode=0777"'  
+         sh 'ansible all -b -m service -a "name=httpd state=started"' 		
  		}
 
  	}

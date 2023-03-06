@@ -17,7 +17,7 @@ pipeline {
 	}
  	stage ("install httpd server") {
  		steps {
- 		sh 'ansible all -b -m  yum -a "name=httpd state=install" '
+ 		sh 'ansible all -b -m  yum -a "name=httpd state=installed" '
  	}
  }	
  	stage ("copy index file") {
